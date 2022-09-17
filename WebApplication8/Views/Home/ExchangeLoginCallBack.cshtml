@@ -1,0 +1,49 @@
+﻿@model (string Status, string Content, bool isSuccess)
+@{
+
+    ViewData["Title"] = "Exchange";
+}
+
+<div class="card">
+    <div class="card-header">
+        El token de acceso
+    </div>
+    <div class="card-body">
+
+        <form action="/call/the/api" method="post">
+            <input type="hidden" name="token"
+                value="@Model.Content" />
+                <p>
+                    Status
+                </p>
+                <p class="response-content">
+                    @Model.Status
+                </p>
+                <p>
+                    Contenido
+                </p>
+                <p class="response-content">
+
+                    @Model.Content
+                </p>
+                @if (Model.isSuccess)
+               {
+                   <p>Ahora podemos invocar API</p>
+                   <p class="text-center">
+
+                       <button class="btn btn-primary">
+                           Invocar
+                       </button>
+                   </p>
+
+
+               }
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
